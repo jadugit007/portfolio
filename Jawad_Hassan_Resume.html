@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jawad Hassan — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6EF;
+    --paper-edge:#F1EADB;
+    --ink:#2B2A26;
+    --ink-soft:#5A5750;
+    --teal:#1F4A44;
+    --teal-soft:#3C6E66;
+    --gold:#A9822F;
+    --line:#DFD6BF;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--paper-edge);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:48px 20px;
+  }
+
+  .sheet{
+    position:relative;
+    width:100%;
+    max-width:760px;
+    background:var(--paper);
+    padding:56px 60px 60px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04), 0 20px 45px -25px rgba(31,74,68,0.35);
+  }
+
+  /* corner ornament — quiet nod to manuscript illumination */
+  .corner{
+    position:absolute;
+    width:34px;
+    height:34px;
+    border:1.5px solid var(--gold);
+    opacity:0.75;
+  }
+  .corner::after{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+  .corner.tl{ top:18px; left:18px; border-right:none; border-bottom:none; }
+  .corner.tl::after{ top:-3px; left:-3px; }
+  .corner.tr{ top:18px; right:18px; border-left:none; border-bottom:none; }
+  .corner.tr::after{ top:-3px; right:-3px; }
+  .corner.bl{ bottom:18px; left:18px; border-right:none; border-top:none; }
+  .corner.bl::after{ bottom:-3px; left:-3px; }
+  .corner.br{ bottom:18px; right:18px; border-left:none; border-top:none; }
+  .corner.br::after{ bottom:-3px; right:-3px; }
+
+  header{
+    text-align:center;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:28px;
+  }
+
+  h1{
+    font-family:'Lora', serif;
+    font-weight:700;
+    font-size:2.5rem;
+    letter-spacing:0.04em;
+    margin:0 0 6px;
+    color:var(--teal);
+  }
+
+  .father{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1rem;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+
+  .contact{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+
+  .contact span{ display:inline-flex; align-items:center; gap:6px; }
+  .contact svg{ width:14px; height:14px; fill:var(--gold); flex-shrink:0; }
+
+  section{ margin-bottom:30px; }
+  section:last-of-type{ margin-bottom:0; }
+
+  .section-title{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:0.78rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:16px;
+  }
+
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(to right, var(--line), transparent);
+  }
+
+  .objective p{
+    margin:0;
+    font-size:0.98rem;
+    line-height:1.75;
+    color:var(--ink);
+  }
+
+  .edu-item{ margin-bottom:18px; }
+  .edu-item:last-child{ margin-bottom:0; }
+
+  .edu-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-bottom:6px;
+  }
+
+  .edu-head h3{
+    font-family:'Lora', serif;
+    font-size:1.08rem;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .edu-meta{
+    font-size:0.82rem;
+    color:var(--gold);
+    font-weight:600;
+    letter-spacing:0.03em;
+    white-space:nowrap;
+  }
+
+  .edu-item p{
+    margin:0;
+    font-size:0.92rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+    padding-left:16px;
+    border-left:2px solid var(--line);
+  }
+
+  .grid-two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+  }
+
+  .skill-item{ margin-bottom:16px; }
+  .skill-item:last-child{ margin-bottom:0; }
+
+  .skill-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:6px;
+  }
+
+  .skill-top strong{
+    font-family:'Lora', serif;
+    font-size:0.96rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+
+  .skill-item p{
+    margin:0;
+    font-size:0.85rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+
+  .bar{
+    height:5px;
+    background:var(--line);
+    border-radius:3px;
+    overflow:hidden;
+    margin-bottom:8px;
+  }
+  .bar > span{
+    display:block;
+    height:100%;
+    background:linear-gradient(to right, var(--teal-soft), var(--teal));
+    border-radius:3px;
+  }
+
+  .languages .skill-top strong{ font-size:0.96rem; }
+  .lang-level{
+    font-size:0.76rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  footer{
+    margin-top:36px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    text-align:center;
+    font-size:0.76rem;
+    color:var(--ink-soft);
+    letter-spacing:0.03em;
+  }
+
+  @media (max-width:600px){
+    .sheet{ padding:40px 26px 44px; }
+    h1{ font-size:1.9rem; }
+    .grid-two{ grid-template-columns:1fr; gap:22px; }
+    .contact{ gap:12px 18px; }
+    .edu-head{ flex-direction:column; align-items:flex-start; }
+  }
+
+  @media print{
+    body{ background:#fff; padding:0; }
+    .sheet{ box-shadow:none; max-width:100%; }
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+
+    <header>
+      <h1>Jawad Hassan</h1>
+      <p class="father">S/O Farooq Hassan</p>
+      <div class="contact">
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h4.2c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+          0308-5253837
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-8 6-8-6V18h16z"/></svg>
+          hassanjawad7octuber@gmail.com
+        </span>
+      </div>
+    </header>
+
+    <section class="objective">
+      <h2 class="section-title">Objective</h2>
+      <p>A hardworking, disciplined, and honest individual with the honor of being Hafiz-e-Quran, complemented by a solid academic foundation in Matriculation and religious studies (Dars-e-Nizami). Possesses basic computer proficiency in MS Word and MS Excel along with a keyboard typing speed of 30 WPM. Eager to secure a position where I can apply my knowledge, discipline, and skills to contribute positively to the organization while continuing to learn and grow professionally.</p>
+    </section>
+
+    <section class="education">
+      <h2 class="section-title">Education</h2>
+
+      <div class="edu-item">
+        <div class="edu-head">
+          <h3>Matriculation</h3>
+          <span class="edu-meta">2024 · 74%</span>
+        </div>
+        <p>Completed secondary school education with a strong overall percentage, building a solid foundation in core subjects and disciplined study habits.</p>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-head">
+          <h3>Hafiz-e-Quran</h3>
+          <span class="edu-meta">2022</span>
+        </div>
+        <p>Successfully memorized the complete Holy Quran, reflecting strong dedication, discipline, patience, and consistency developed over years of rigorous study.</p>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-head">
+          <h3>Dars-e-Nizami</h3>
+          <span class="edu-meta">2 Years</span>
+        </div>
+        <p>Studied traditional Islamic sciences including Quranic interpretation, Hadith, Fiqh, and Arabic grammar, strengthening analytical thinking and moral character.</p>
+      </div>
+    </section>
+
+    <div class="grid-two">
+      <section class="skills">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skill-item">
+          <div class="skill-top"><strong>Typing Speed</strong></div>
+          <div class="bar"><span style="width:60%"></span></div>
+          <p>30 WPM with good accuracy, suitable for data entry and documentation tasks.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-top"><strong>MS Word</strong></div>
+          <div class="bar"><span style="width:70%"></span></div>
+          <p>Creating, formatting, and editing documents, letters, and reports.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-top"><strong>MS Excel</strong></div>
+          <div class="bar"><span style="width:65%"></span></div>
+          <p>Basic data entry, formatting, and simple formulas for record-keeping.</p>
+        </div>
+      </section>
+
+      <section class="languages">
+        <h2 class="section-title">Languages</h2>
+
+        <div class="skill-item">
+          <div class="skill-top">
+            <strong>Urdu</strong>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="bar"><span style="width:95%"></span></div>
+          <p>Fluent reading, writing, and speaking ability.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-top">
+            <strong>English</strong>
+            <span class="lang-level">Good</span>
+          </div>
+          <div class="bar"><span style="width:60%"></span></div>
+          <p>Good reading, writing, and basic conversational ability.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer>References available upon request</footer>
+  </main>
+</body>
+</html>
